@@ -103,7 +103,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 50%, rgba(22,163,74,0.2) 100%), 
-                        url('https://lh3.googleusercontent.com/p/AF1QipOimcuGLqmL4T2XZLxneu0_tZ7-ooUjtcbfIfab=s680-w680-h510-rw') center/cover no-repeat;
+                        url('https://placehold.co/1920x600/1a1a1a/4ade80?text=Motos+Renatinho') center/cover no-repeat;
             color: var(--white);
             padding: 6rem 0;
             text-align: center;
@@ -961,22 +961,9 @@
                 <div class="logo-dot"></div>
                 <span>Renatinho Motos</span>
             </div>
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt contact-icon"></i>
-                <a href="https://maps.app.goo.gl/dwrq7miuhmyXjX6W9" target="_blank" class="contact-link">Av. Principal, 123 - Centro, Cidade - Estado</a>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-phone contact-icon"></i>
-                <span>(14) 99745-4474</span>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-clock contact-icon"></i>
-                <span>Segunda a Sábado: 8h às 18h</span>
-            </div>
-            <div class="footer-links">
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            </div>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
             <p class="copyright">© 2025 Renatinho Motos. Todos os direitos reservados.</p>
         </div>
     </footer>
@@ -1007,14 +994,6 @@
                 }
             });
         });
-        // Form submission
-        const financingForm = document.getElementById('financingForm');
-        if (financingForm) {
-            financingForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Ficha de financiamento enviada com sucesso! Entraremos em contato em breve.');
-            });
-        }
         // CEP auto-complete (simplified)
         const cepInput = document.getElementById('cep');
         if (cepInput) {
@@ -1078,6 +1057,110 @@
             document.getElementById('km-max').value = '';
             filterMotos();
         });
+
+        // Form submission - Send to WhatsApp Financeiro
+        const financingForm = document.getElementById('financingForm');
+        if (financingForm) {
+            financingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const formData = {
+                    nomeCompleto: document.getElementById('nomeCompleto').value,
+                    dataNascimento: document.getElementById('dataNascimento').value,
+                    sexo: document.getElementById('sexo').value,
+                    cpf: document.getElementById('cpf').value,
+                    rg: document.getElementById('rg').value,
+                    orgaoEmissor: document.getElementById('orgaoEmissor').value,
+                    dataEmissao: document.getElementById('dataEmissao').value,
+                    naturalidade: document.getElementById('naturalidade').value,
+                    nacionalidade: document.getElementById('nacionalidade').value,
+                    estadoCivil: document.getElementById('estadoCivil').value,
+                    cep: document.getElementById('cep').value,
+                    endereco: document.getElementById('endereco').value,
+                    numero: document.getElementById('numero').value,
+                    complemento: document.getElementById('complemento').value,
+                    bairro: document.getElementById('bairro').value,
+                    cidade: document.getElementById('cidade').value,
+                    estado: document.getElementById('estado').value,
+                    tipoResidencia: document.getElementById('tipoResidencia').value,
+                    telefoneResidencial: document.getElementById('telefoneResidencial').value,
+                    celular: document.getElementById('celular').value,
+                    nomePai: document.getElementById('nomePai').value,
+                    nomeMae: document.getElementById('nomeMae').value,
+                    tipoProfissional: document.getElementById('tipoProfissional').value,
+                    nomeBanco: document.getElementById('nomeBanco').value,
+                    numeroAgencia: document.getElementById('numeroAgencia').value,
+                    numeroConta: document.getElementById('numeroConta').value,
+                    clienteDesde: document.getElementById('clienteDesde').value,
+                    nomeRef1: document.getElementById('nomeRef1').value,
+                    telefoneRef1: document.getElementById('telefoneRef1').value,
+                    nomeRef2: document.getElementById('nomeRef2').value,
+                    telefoneRef2: document.getElementById('telefoneRef2').value,
+                    prazoFinanciamento: document.getElementById('prazoFinanciamento').value,
+                    entrada: document.getElementById('entrada').value,
+                    veiculoDesejado: document.getElementById('veiculoDesejado').value,
+                    observacao: document.getElementById('observacao').value
+                };
+                
+                // Format the message
+                let message = "Olá! Recebi uma nova solicitação de financiamento:\n\n";
+                message += `*DADOS PESSOAIS*\n`;
+                message += `Nome: ${formData.nomeCompleto}\n`;
+                message += `Data de Nascimento: ${formData.dataNascimento}\n`;
+                message += `Sexo: ${formData.sexo}\n`;
+                message += `CPF: ${formData.cpf}\n`;
+                message += `RG: ${formData.rg}\n`;
+                message += `Órgão Emissor: ${formData.orgaoEmissor}\n`;
+                message += `Data de Emissão: ${formData.dataEmissao}\n`;
+                message += `Naturalidade: ${formData.naturalidade}\n`;
+                message += `Nacionalidade: ${formData.nacionalidade}\n`;
+                message += `Estado Civil: ${formData.estadoCivil}\n\n`;
+                
+                message += `*ENDEREÇO*\n`;
+                message += `CEP: ${formData.cep}\n`;
+                message += `Endereço: ${formData.endereco}, ${formData.numero}\n`;
+                message += `Complemento: ${formData.complemento}\n`;
+                message += `Bairro: ${formData.bairro}\n`;
+                message += `Cidade: ${formData.cidade}\n`;
+                message += `Estado: ${formData.estado}\n`;
+                message += `Tipo de Residência: ${formData.tipoResidencia}\n`;
+                message += `Telefone Residencial: ${formData.telefoneResidencial}\n`;
+                message += `Celular: ${formData.celular}\n\n`;
+                
+                message += `*DADOS FAMILIARES*\n`;
+                message += `Nome do Pai: ${formData.nomePai}\n`;
+                message += `Nome da Mãe: ${formData.nomeMae}\n\n`;
+                
+                message += `*DADOS PROFISSIONAIS*\n`;
+                message += `Tipo de Profissional: ${formData.tipoProfissional}\n\n`;
+                
+                message += `*REFERÊNCIAS BANCÁRIAS*\n`;
+                message += `Nome do Banco: ${formData.nomeBanco}\n`;
+                message += `N° da Agência: ${formData.numeroAgencia}\n`;
+                message += `N° da Conta: ${formData.numeroConta}\n`;
+                message += `Cliente desde: ${formData.clienteDesde}\n\n`;
+                
+                message += `*REFERÊNCIAS PESSOAIS*\n`;
+                message += `Nome 1: ${formData.nomeRef1}\n`;
+                message += `Telefone Fixo 1: ${formData.telefoneRef1}\n`;
+                message += `Nome 2: ${formData.nomeRef2}\n`;
+                message += `Telefone Fixo 2: ${formData.telefoneRef2}\n\n`;
+                
+                message += `*DADOS DO VEÍCULO*\n`;
+                message += `Prazo de Financiamento: ${formData.prazoFinanciamento} meses\n`;
+                message += `Entrada: R$ ${formData.entrada}\n`;
+                message += `Veículo Desejado: ${formData.veiculoDesejado}\n`;
+                message += `Observação: ${formData.observacao}\n`;
+                
+                // Encode the message for WhatsApp
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappUrl = `https://wa.me/5514999014734?text=${encodedMessage}`;
+                
+                // Open WhatsApp in new tab
+                window.open(whatsappUrl, '_blank');
+            });
+        }
     </script>
 </body>
 </html>
