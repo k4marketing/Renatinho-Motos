@@ -241,6 +241,95 @@
             margin-top: 1.5rem;
             justify-content: center;
         }
+        /* Financing Section - UPDATED */
+        .financing-form {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--gray-200);
+        }
+        .form-section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .form-section-title {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--gray-900);
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--green);
+            display: inline-block;
+            position: relative;
+        }
+        .form-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--green);
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            font-size: 0.95rem;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .authorization {
+            background-color: #f0fdf4;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+            color: #065f46;
+            font-size: 0.95rem;
+            border-left: 4px solid var(--green);
+            font-weight: 500;
+        }
+        .submit-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
         /* Contact Section */
         .contact-info {
             max-width: 600px;
@@ -330,6 +419,12 @@
             }
             .hero h1 {
                 font-size: 2rem;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .financing-form {
+                padding: 1.5rem;
             }
             .filter-actions {
                 flex-direction: column;
@@ -565,12 +660,10 @@
                 </div>
             </div>
             <div class="featured-grid" id="inventoryGrid">
-                <!-- All motorcycles are already in featuredGrid, we'll clone them here for simplicity -->
-                <!-- In a real app, you'd have a single source of truth -->
             </div>
         </div>
     </section>
-    <!-- Financing Section -->
+    <!-- Financing Section - UPDATED TEMPLATE -->
     <section class="section" id="financiamento" style="background-color: var(--gray-100);">
         <div class="container">
             <h2 class="section-title">Financiamento</h2>
@@ -831,18 +924,20 @@
                 <div class="authorization">
                     Ao clicar no botão "Enviar Ficha", Você estará autorizando o envio destes dados às instituições financeiras para análise de crédito.
                 </div>
-                <button type="submit" class="btn">Enviar Ficha</button>
+                <div class="submit-container">
+                    <button type="submit" class="btn">Enviar Ficha de Financiamento</button>
+                </div>
             </form>
         </div>
     </section>
-    <!-- Contact Section -->
+    <!-- Contact Section - UPDATED WITH NEW GOOGLE MAPS LINK -->
     <section class="section" id="contato">
         <div class="container">
             <h2 class="section-title">Contato</h2>
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt contact-icon"></i>
-                    <a href="https://maps.google.com" target="_blank" class="contact-link">Av. Principal, 123 - Centro, Cidade - Estado</a>
+                    <a href="https://maps.app.goo.gl/dwrq7miuhmyXjX6W9" target="_blank" class="contact-link">Av. Principal, 123 - Centro, Cidade - Estado</a>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone contact-icon"></i>
@@ -868,7 +963,7 @@
             </div>
             <div class="contact-item">
                 <i class="fas fa-map-marker-alt contact-icon"></i>
-                <a href="https://maps.google.com" target="_blank" class="contact-link">Av. Principal, 123 - Centro, Cidade - Estado</a>
+                <a href="https://maps.app.goo.gl/dwrq7miuhmyXjX6W9" target="_blank" class="contact-link">Av. Principal, 123 - Centro, Cidade - Estado</a>
             </div>
             <div class="contact-item">
                 <i class="fas fa-phone contact-icon"></i>
